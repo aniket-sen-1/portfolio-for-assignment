@@ -221,6 +221,11 @@ const Contact = () => {
                 className="submit-button"
                 onClick={handleSubmit}
                 disabled={disableButton}
+                style={
+                  disableButton
+                    ? { background: "rgba(255, 255, 255, 0.4)" }
+                    : null
+                }
               >
                 {isLoading ? <ClipLoader color="#36d7b7" size={18} /> : null}
                 <span>submit</span>

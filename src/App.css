@@ -1,5 +1,11 @@
 * {
   scroll-behavior: smooth;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
 }
 .header-parent {
   background-color: rgb(16, 16, 16);
@@ -8,12 +14,18 @@
   display: flex;
   align-items: center;
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  transition: all 0.8s;
 }
 
 .social-bar {
   display: flex;
   gap: 19px;
-  margin-right: auto;
+  /* margin-right: auto; */
   text-decoration: none;
   color: white;
 }
@@ -41,6 +53,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .hero-inner-section {
@@ -49,7 +62,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-width: 400px;
+  /* min-width: 400px;     /////////////////////// */
+  flex-wrap: wrap;
 }
 .avatar {
   border-radius: 50%;
@@ -76,6 +90,7 @@
 .projects-outer {
   background-color: rgba(5, 52, 5, 0.856);
   padding: 10px 50px 50px 50px;
+  transition: all 0.9s;
 }
 
 .project-heading {
@@ -89,6 +104,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  transition: all 0.9s;
 }
 
 .project-card {
@@ -97,6 +113,7 @@
   border-radius: 10px 10px 10px 10px;
   flex-basis: 49%;
   margin-top: 70px;
+  transition: all 0.9s;
 }
 
 .project-card-image {
@@ -158,7 +175,7 @@
 .contact-form-inner {
   width: 53%;
   margin: 0 auto;
-  min-width: 450px;
+  /* min-width: 450px; */
 }
 
 .input {
@@ -248,4 +265,66 @@ a:hover {
   color: #00a0c6;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 516px) {
+  .social-bar {
+    width: 100%;
+    justify-content: center;
+  }
+  .menu-parent {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+  }
+  .header-parent {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 647px) {
+  .project-card {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 356px) {
+  .hero-inner-section {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 356px) and (max-width: 642px) {
+  .hero-inner-section {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 642px) and (max-width: 1035px) {
+  .hero-inner-section {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1035px) {
+  .hero-inner-section {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 684px) {
+  .project-card {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .projects-outer {
+    padding: 10px 20px 50px 20px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .contact-form-inner {
+    width: 80%;
+  }
 }
