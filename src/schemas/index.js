@@ -15,7 +15,6 @@ export const signUpSchemas = Yup.object({
   type: Yup.string(),
 
   message: Yup.string()
-    .min(1, "Message should be 1 to 25 characters")
-    .max(25, "Message Should be less then 25 characters")
+    .min(25, "Message should be more then 25 characters")
     .required("Please Enter Message"),
 });
