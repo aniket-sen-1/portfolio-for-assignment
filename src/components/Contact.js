@@ -1,23 +1,84 @@
 import React, { useState } from "react";
 import { Formik, useFormik } from "formik";
 import { signUpSchemas } from "../schemas";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ClipLoader from "react-spinners/ClipLoader";
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Contact = () => {
   const [disableButton, setDisableButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const initialValues = {
     name: "",
     email: "",
     type: "",
     message: "",
   };
-
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signUpSchemas,
-      onSubmit: (values, action) => {
-        alert("Message Sent");
-        action.resetForm();
+      onSubmit: async (values, action) => {
+        // action.resetForm();
+
+        const random = Math.random();
+        // setLoading(true);
+        setDisableButton(true);
+        setIsLoading(true);
+        try {
+          await wait(2000);
+          if (random < 0.5) {
+            setDisableButton(false);
+            setIsLoading(false);
+            throw new Error("Something went wrong");
+          }
+          toast.success(
+            `Thanks for your submission ${values.name}, we will get back to you shortly!`,
+            {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            }
+          );
+          action.resetForm();
+          setIsLoading(false);
+        } catch (error) {
+          toast.warn("Something went wrong, please try again later!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setDisableButton(false);
+          setIsLoading(false);
+        } finally {
+          // setLoading(false);
+          setDisableButton(false);
+          setIsLoading(false);
+        }
+
+        // const notify = () =>
+        //   toast.success("🦄 Wow so easy!", {
+        //     position: "top-center",
+        //     autoClose: 5000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        //     theme: "light",
+        //   });
+        // notify();
       },
     });
 
@@ -40,6 +101,7 @@ const Contact = () => {
   ];
   return (
     <React.Fragment>
+      <ToastContainer />
       <div className="contact-form-outer" id="contact-id">
         <div className="contact-form-inner">
           <div className="contact-header">Contact Me</div>
@@ -154,8 +216,14 @@ const Contact = () => {
               ) : null}
             </div>
             <div className="submit">
-              <button className="submit-button" onClick={handleSubmit}>
-                submit
+              <button
+                type="submit"
+                className="submit-button"
+                onClick={handleSubmit}
+                disabled={disableButton}
+              >
+                {isLoading ? <ClipLoader color="#36d7b7" size={18} /> : null}
+                <span>submit</span>
               </button>
             </div>
           </form>

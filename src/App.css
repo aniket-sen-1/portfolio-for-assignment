@@ -213,14 +213,18 @@
 .submit-button {
   width: 100%;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.279);
+  background-color: rgba(255, 255, 255, 0.866);
   margin-top: 10px;
   border: 0px;
   border-radius: 5px;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.765);
+  color: rgba(37, 33, 33, 0.983);
   font-weight: bold;
   margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .error-comp-m {
