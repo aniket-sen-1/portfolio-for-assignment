@@ -8,6 +8,8 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Contact = () => {
   const [disableButton, setDisableButton] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null);
+  // const scrollDirection = useScrollDirection();
   const [isLoading, setIsLoading] = useState(false);
   const initialValues = {
     name: "",
@@ -81,9 +83,6 @@ const Contact = () => {
         // notify();
       },
     });
-
-  console.log("values=> ", values);
-  console.log("error=> ", errors);
 
   const options = [
     {

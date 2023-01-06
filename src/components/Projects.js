@@ -4,7 +4,6 @@ import ProjectCard from "./ProjectCard";
 import { projects_data } from "../project_data";
 
 const Projects = () => {
-  console.log(projects_data);
   return (
     <React.Fragment>
       <div className="projects-outer" id="project-id">
