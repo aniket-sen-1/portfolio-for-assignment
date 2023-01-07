@@ -43,31 +43,43 @@ const Header = () => {
       }`}
     >
       <div className="social-bar">
-        <a href="https://linkedin.com/in/aniket-sen-806a25197">
+        <a
+          href="https://linkedin.com/in/aniket-sen-806a25197"
+          aria-label="social-mail"
+        >
           <div className="social-icon-parent">
             <HiMail className="social-icon" />
           </div>
         </a>
 
-        <a href="https://github.com/aniket-sen-1">
+        <a href="https://github.com/aniket-sen-1" aria-label="social-gihub">
           <div className="social-icon-parent">
             <AiFillGithub className="social-icon" />
           </div>
         </a>
 
-        <a href="https://linkedin.com/in/aniket-sen-806a25197">
+        <a
+          href="https://linkedin.com/in/aniket-sen-806a25197"
+          aria-label="social-linkedin"
+        >
           <div className="social-icon-parent">
             <FaLinkedin className="social-icon" />
           </div>
         </a>
 
-        <a href="https://linkedin.com/in/aniket-sen-806a25197">
+        <a
+          href="https://linkedin.com/in/aniket-sen-806a25197"
+          aria-label="medium"
+        >
           <div className="social-icon-parent">
             <BsMedium className="social-icon" />
           </div>
         </a>
 
-        <a href="https://linkedin.com/in/aniket-sen-806a25197">
+        <a
+          href="https://linkedin.com/in/aniket-sen-806a25197"
+          aria-label="social-stackoverflow"
+        >
           <div className="social-icon-parent">
             <BsStackOverflow className="social-icon" />
           </div>

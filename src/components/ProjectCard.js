@@ -5,7 +5,7 @@ const ProjectCard = ({ title, description, url, img }) => {
   return (
     <div className="project-card">
       <div className="project-card-image-container">
-        <img src={`${img}`} className="project-card-image" />
+        <img src={`${img}`} className="project-card-image" alt={`${title}`} />
       </div>
       <div className="project-card-info">
         <div className="project-card-name">{title}</div>
